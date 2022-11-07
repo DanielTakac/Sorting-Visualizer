@@ -75,7 +75,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 65);
+            this.label2.Location = new System.Drawing.Point(645, 14);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 20);
             this.label2.TabIndex = 4;
@@ -106,6 +106,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

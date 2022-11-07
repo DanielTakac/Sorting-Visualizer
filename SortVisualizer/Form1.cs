@@ -1,18 +1,23 @@
 namespace SortVisualizer {
-    
+
     public partial class Form1 : Form {
 
         int[] theArray;
+        
         Graphics g;
 
+        Thread sortingThread;
+
         public Form1() {
-        
+
             InitializeComponent();
-        
+
         }
 
         private void btnReset_Click(object sender, EventArgs e) {
 
+            if (sortingThread != null) sortingThread.Interrupt();
+            
             g = panel1.CreateGraphics();
 
             int numEntries = panel1.Width;
@@ -38,15 +43,30 @@ namespace SortVisualizer {
 
         }
 
-        private void btnStart_Click(object sender, EventArgs e) {
+        void StartBubbleSort() {
 
             ISortEngine bubbleSort = new BubbleSort();
-            
-            bubbleSort.DoWork(theArray, g, panel1.Height);
 
-            label2.Text = "Done";
+            bubbleSort.Sort(theArray, g, panel1.Height);
 
         }
+
+        private void btnStart_Click(object sender, EventArgs e) {
+
+            sortingThread = new Thread(StartBubbleSort);
+
+            sortingThread.Start();
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e) {
+
+
+
+
+
+        }
+
     }
     
 }

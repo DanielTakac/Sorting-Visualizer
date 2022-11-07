@@ -7,15 +7,14 @@ using System.Threading.Tasks;
 namespace SortVisualizer {
 
     public class BubbleSort : ISortEngine {
-
-        private bool _sorted = false;
+        
         private int[] theArray;
         private Graphics g;
         private int maxVal;
         Brush whiteBrush = new SolidBrush(Color.White);
         Brush blackBrush = new SolidBrush(Color.Black);
         
-        public void DoWork(int[] theArray_In, Graphics g_In, int maxVal_In) {
+        public void Sort(int[] theArray_In, Graphics g_In, int maxVal_In) {
 
             theArray = theArray_In;
             maxVal = maxVal_In;
@@ -48,6 +47,35 @@ namespace SortVisualizer {
 
         }
     
+    }
+
+    public class BogoSort : ISortEngine {
+        
+        private int[] theArray;
+        private Graphics g;
+        private int maxVal;
+        Brush whiteBrush = new SolidBrush(Color.White);
+        Brush blackBrush = new SolidBrush(Color.Black);
+
+        public void Sort(int[] theArray_In, Graphics g_In, int maxVal_In) {
+
+            theArray = theArray_In;
+            maxVal = maxVal_In;
+            g = g_In;
+
+            int[] referenceArray = new int[theArray.Length];
+
+            Array.Copy(theArray, referenceArray, theArray.Length);
+            Array.Sort(referenceArray);
+
+            while (!theArray.SequenceEqual(referenceArray)) {
+
+                
+
+            }
+
+        }
+
     }
 
 }
