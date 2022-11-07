@@ -16,28 +16,36 @@ namespace SortVisualizer {
             g = panel1.CreateGraphics();
 
             int numEntries = panel1.Width;
-            int maxValue = panel1.Height;
+            int maxVal = panel1.Height;
 
             theArray = new int[numEntries];
 
-            g.FillRectangle(new SolidBrush(Color.Black), 0, 0, numEntries, maxValue);
+            g.FillRectangle(new SolidBrush(Color.Black), 0, 0, numEntries, maxVal);
 
             Random rand = new Random();
 
             for (int i = 0; i < numEntries; i++) {
 
-                theArray[i] = rand.Next(0, maxValue);
+                theArray[i] = rand.Next(0, maxVal);
 
             }
 
             for (int i = 0; i < numEntries; i++) {
 
-                g.FillRectangle(new SolidBrush(Color.White), i, maxValue - theArray[i], 1, maxValue);
+                g.FillRectangle(new SolidBrush(Color.White), i, maxVal - theArray[i], 1, maxVal);
 
             }
 
         }
 
+        private void btnStart_Click(object sender, EventArgs e) {
+
+            ISortEngine bubbleSort = new BubbleSort();
+            
+            bubbleSort.DoWork(theArray, g, panel1.Height);
+
+        }
+        
     }
     
 }

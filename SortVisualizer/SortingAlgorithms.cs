@@ -5,15 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SortingAlgorithms {
+namespace SortVisualizer {
 
     public class SortingAlgorithms {
 
-        public static int[] InsertionSort(int[] input, out long time) {
-
-            var sw = new Stopwatch();
-
-            sw.Start();
+        public static int[] InsertionSort(int[] input) {
 
             int[] referenceArray = new int[input.Length];
             int[] sortedArray = new int[input.Length];
@@ -36,22 +32,12 @@ namespace SortingAlgorithms {
 
 
             }
-
-            sw.Stop();
-
-            Console.WriteLine($"InsertionSort: {sw.ElapsedMilliseconds} ms\n");
-
-            time = sw.ElapsedMilliseconds;
-
+            
             return sortedArray;
 
         }
 
-        public static int[] SelectionSort(int[] input, out long time) {
-
-            var sw = new Stopwatch();
-
-            sw.Start();
+        public static int[] SelectionSort(int[] input) {
 
             int[] referenceArray = new int[input.Length];
             int[] sortedArray = new int[input.Length];
@@ -83,21 +69,11 @@ namespace SortingAlgorithms {
 
             }
 
-            sw.Stop();
-
-            Console.WriteLine($"SelectionSort: {sw.ElapsedMilliseconds} ms\n");
-
-            time = sw.ElapsedMilliseconds;
-
             return sortedArray;
 
         }
 
-        public static int[] QuickSort(int[] input, out long time) {
-
-            var sw = new Stopwatch();
-
-            sw.Start();
+        public static int[] QuickSort(int[] input) {
 
             int[] referenceArray = new int[input.Length];
             int[] sortedArray = new int[input.Length];
@@ -167,22 +143,12 @@ namespace SortingAlgorithms {
 
             QuickSort(sortedArray, 0, sortedArray.Length - 1);
 
-            sw.Stop();
-
-            Console.WriteLine($"QuickSort: {sw.ElapsedMilliseconds} ms\n");
-
-            time = sw.ElapsedMilliseconds;
-
             return sortedArray;
 
         }
 
-        public static int[] MergeSort(int[] input, out long time) {
-
-            var sw = new Stopwatch();
-
-            sw.Start();
-
+        public static int[] MergeSort(int[] input) {
+            
             int[] referenceArray = new int[input.Length];
             int[] sortedArray = new int[input.Length];
 
@@ -256,22 +222,12 @@ namespace SortingAlgorithms {
 
             sortedArray = MergeSort(sortedArray);
 
-            sw.Stop();
-
-            Console.WriteLine($"MergeSort: {sw.ElapsedMilliseconds} ms\n");
-
-            time = sw.ElapsedMilliseconds;
-
             return sortedArray;
 
         }
 
-        public static int[] HeapSort(int[] input, out long time) {
-
-            var sw = new Stopwatch();
-
-            sw.Start();
-
+        public static int[] HeapSort(int[] input) {
+            
             int[] referenceArray = new int[input.Length];
             int[] sortedArray = new int[input.Length];
 
@@ -333,22 +289,12 @@ namespace SortingAlgorithms {
 
             sortedArray = HeapSort(sortedArray);
 
-            sw.Stop();
-
-            Console.WriteLine($"HeapSort: {sw.ElapsedMilliseconds} ms\n");
-
-            time = sw.ElapsedMilliseconds;
-
             return sortedArray;
 
         }
 
-        public static int[] BubbleSort(int[] input, out long time) {
-
-            var sw = new Stopwatch();
-
-            sw.Start();
-
+        public static int[] BubbleSort(int[] input) {
+            
             int[] referenceArray = new int[input.Length];
             int[] sortedArray = new int[input.Length];
 
@@ -361,32 +307,20 @@ namespace SortingAlgorithms {
                 for (int i = 1; i < sortedArray.Length; i++) {
 
                     if (sortedArray[i - 1] > sortedArray[i]) {
-
-                        // Console.WriteLine($"Swapped {sortedArray[i - 1]} with {sortedArray[i]} at position {i - 1}");
-
+                        
                         (sortedArray[i - 1], sortedArray[i]) = (sortedArray[i], sortedArray[i - 1]);
-
-                    } else {
-
-                        // Console.WriteLine($"Didn't swap {sortedArray[i - 1]} with {sortedArray[i]} at position {i - 1}");
 
                     }
 
                 }
 
             }
-
-            sw.Stop();
-
-            Console.WriteLine($"BubbleSort: {sw.ElapsedMilliseconds} ms\n");
-
-            time = sw.ElapsedMilliseconds;
-
+            
             return sortedArray;
 
         }
 
-        public static int[] BogoSort(int[] input, out long time) {
+        public static int[] BogoSort(int[] input) {
 
             int[] referenceArray = new int[input.Length];
 
@@ -394,11 +328,7 @@ namespace SortingAlgorithms {
             Array.Sort(referenceArray);
 
             int[] sortedArray = new int[input.Length];
-
-            var sw = new Stopwatch();
-
-            sw.Start();
-
+            
             while (!sortedArray.SequenceEqual(referenceArray)) {
 
                 var random = new Random();
@@ -406,12 +336,6 @@ namespace SortingAlgorithms {
                 sortedArray = input.OrderBy(x => random.Next()).ToArray();
 
             }
-
-            sw.Stop();
-
-            Console.WriteLine($"BogoSort: {sw.ElapsedMilliseconds} ms\n");
-
-            time = sw.ElapsedMilliseconds;
 
             return sortedArray;
 
