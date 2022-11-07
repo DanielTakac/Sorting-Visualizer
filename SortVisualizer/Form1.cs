@@ -44,8 +44,9 @@ namespace SortVisualizer {
             
             bubbleSort.DoWork(theArray, g, panel1.Height);
 
+            label2.Text = "Done";
+
         }
-        
     }
     
 }

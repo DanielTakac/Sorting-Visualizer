@@ -34,25 +34,27 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 11);
+            this.label1.Location = new System.Drawing.Point(13, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 15);
+            this.label1.Size = new System.Drawing.Size(76, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Algorithm";
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(78, 8);
+            this.comboBox1.Location = new System.Drawing.Point(89, 11);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(210, 23);
+            this.comboBox1.Size = new System.Drawing.Size(239, 28);
             this.comboBox1.TabIndex = 1;
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(343, 8);
+            this.btnReset.Location = new System.Drawing.Point(392, 11);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.Size = new System.Drawing.Size(86, 31);
             this.btnReset.TabIndex = 2;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
@@ -64,25 +66,27 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.panel1.Location = new System.Drawing.Point(11, 78);
+            this.panel1.Location = new System.Drawing.Point(13, 104);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1473, 807);
+            this.panel1.Size = new System.Drawing.Size(1683, 935);
             this.panel1.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 49);
+            this.label2.Location = new System.Drawing.Point(14, 65);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 15);
+            this.label2.Size = new System.Drawing.Size(73, 20);
             this.label2.TabIndex = 4;
             this.label2.Text = "Array size";
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(457, 7);
+            this.btnStart.Location = new System.Drawing.Point(522, 9);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(75, 23);
+            this.btnStart.Size = new System.Drawing.Size(86, 31);
             this.btnStart.TabIndex = 5;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
@@ -90,15 +94,16 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1496, 897);
+            this.ClientSize = new System.Drawing.Size(1710, 1055);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
