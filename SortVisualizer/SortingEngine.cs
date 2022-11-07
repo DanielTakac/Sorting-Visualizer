@@ -32,7 +32,7 @@ namespace SortVisualizer {
                     if (theArray[i] > theArray[i + 1]) {
 
                         (theArray[i], theArray[i + 1]) = (theArray[i + 1], theArray[i]);
-                        
+
                         g.FillRectangle(blackBrush, i, 0, 1, maxVal);
                         g.FillRectangle(blackBrush, i + 1, 0, 1, maxVal);
 
@@ -70,7 +70,17 @@ namespace SortVisualizer {
 
             while (!theArray.SequenceEqual(referenceArray)) {
 
-                
+                var random = new Random();
+
+                theArray = theArray.OrderBy(x => random.Next()).ToArray();
+
+                g.FillRectangle(new SolidBrush(Color.Black), 0, 0, theArray.Length, maxVal);
+
+                for (int i = 0; i < theArray.Length; i++) {
+
+                    g.FillRectangle(new SolidBrush(Color.White), i, maxVal - theArray[i], 1, maxVal);
+
+                }
 
             }
 
