@@ -27,7 +27,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btnReset = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.sortingTimeLabel = new System.Windows.Forms.Label();
@@ -45,12 +44,6 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "BubbleSort",
-            "InsertionSort",
-            "SelectionSort",
-            "QuickSort",
-            "BogoSort"});
             this.comboBox1.Location = new System.Drawing.Point(78, 8);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(210, 23);
@@ -65,15 +58,6 @@
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(564, 10);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 15);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Array size";
             // 
             // btnStart
             // 
@@ -113,7 +97,6 @@
             this.ClientSize = new System.Drawing.Size(684, 761);
             this.Controls.Add(this.sortingTimeLabel);
             this.Controls.Add(this.btnStart);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.comboBox1);
@@ -133,7 +116,6 @@
         private Label label1;
         private ComboBox comboBox1;
         private Button btnReset;
-        private Label label2;
         private Button btnStart;
         private Panel panel1;
         private Label sortingTimeLabel;

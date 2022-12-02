@@ -19,6 +19,20 @@ namespace SortVisualizer {
 
             sortingTimeLabel.Text = string.Empty;
 
+            PopulateDropdown();
+
+        }
+
+        private void PopulateDropdown() {
+
+            List<string> classList = AppDomain.CurrentDomain.GetAssemblies().SelectMany(x => x.GetTypes())
+                .Where(x => typeof(ISortEngine).IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract)
+                .Select(x => x.Name).ToList();
+
+            foreach (string entry in classList) comboBox1.Items.Add(entry);
+
+            comboBox1.SelectedIndex = 0;
+
         }
 
         private void btnReset_Click(object sender, EventArgs e) {
