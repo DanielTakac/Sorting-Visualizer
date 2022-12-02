@@ -15,7 +15,9 @@ namespace SortVisualizer {
         Brush whiteBrush = new SolidBrush(Color.White);
         Brush blackBrush = new SolidBrush(Color.Black);
 
-        public string Sort(int[] theArray_In, Graphics g_In, int maxVal_In) {
+        public bool canRun { get; set; }
+
+        public string Sort(int[] theArray_In, Graphics g_In, int maxVal_In, ref bool finishedSuccessfully) {
 
             var sw = new Stopwatch();
 
@@ -24,6 +26,8 @@ namespace SortVisualizer {
             theArray = theArray_In;
             maxVal = maxVal_In;
             g = g_In;
+            canRun = true;
+            finishedSuccessfully = false;
 
             int[] referenceArray = new int[theArray.Length];
             
@@ -31,6 +35,16 @@ namespace SortVisualizer {
             Array.Sort(referenceArray);
 
             while (!theArray.SequenceEqual(referenceArray)) {
+
+                if (!canRun) {
+
+                    finishedSuccessfully = false;
+                    
+                    sw.Stop();
+                    
+                    return sw.ElapsedMilliseconds.ToString();
+
+                }
 
                 for (int i = 0; i < theArray.Length - 1; i++) {
 
@@ -52,6 +66,8 @@ namespace SortVisualizer {
 
             sw.Stop();
 
+            finishedSuccessfully = true;
+
             return sw.ElapsedMilliseconds.ToString();
 
         }
@@ -65,8 +81,9 @@ namespace SortVisualizer {
         private int maxVal;
         Brush whiteBrush = new SolidBrush(Color.White);
         Brush blackBrush = new SolidBrush(Color.Black);
+        public bool canRun { get; set; }
 
-        public string Sort(int[] theArray_In, Graphics g_In, int maxVal_In) {
+        public string Sort(int[] theArray_In, Graphics g_In, int maxVal_In, ref bool finishedSuccessfully) {
 
             var sw = new Stopwatch();
 
@@ -75,6 +92,7 @@ namespace SortVisualizer {
             theArray = theArray_In;
             maxVal = maxVal_In;
             g = g_In;
+            finishedSuccessfully = false;
 
             int[] referenceArray = new int[theArray.Length];
 
@@ -82,6 +100,16 @@ namespace SortVisualizer {
             Array.Sort(referenceArray);
 
             while (!theArray.SequenceEqual(referenceArray)) {
+
+                if (!canRun) {
+
+                    finishedSuccessfully = false;
+
+                    sw.Stop();
+
+                    return sw.ElapsedMilliseconds.ToString();
+
+                }
 
                 var random = new Random();
 
@@ -98,6 +126,8 @@ namespace SortVisualizer {
             }
 
             sw.Stop();
+            finishedSuccessfully = true;
+
 
             return sw.ElapsedMilliseconds.ToString();
 

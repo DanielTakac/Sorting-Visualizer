@@ -11,7 +11,11 @@ namespace SortVisualizer {
 
         Thread sortingThread;
 
+        ISortEngine sort;
+
         string sortingTime = string.Empty;
+
+        string sortingAlgorithm = string.Empty;
 
         public Form1() {
 
@@ -37,27 +41,43 @@ namespace SortVisualizer {
 
         private void btnReset_Click(object sender, EventArgs e) {
 
-            if (sortingThread != null) sortingThread.Interrupt();
+            if (sortingThread != null) sort.canRun = false;
 
             Reset();
 
         }
 
-        void StartBubbleSort() {
+        void StartSort() {
 
-            ISortEngine bubbleSort = new BubbleSort();
+            if (sort != null) return;
 
-            sortingTime = bubbleSort.Sort(theArray, g, panel1.Height);
+            bool finishedSuccessfully = false;
 
-            this.sortingTimeLabel.Invoke((MethodInvoker)delegate {
-                sortingTimeLabel.Text = $"Finished in {sortingTime} ms";
+            sort = (ISortEngine)Activator.CreateInstance(Type.GetType("SortVisualizer." + sortingAlgorithm));
+
+            sortingTime = sort.Sort(theArray, g, panel1.Height, ref finishedSuccessfully);
+
+            sort = null;
+
+            sortingTimeLabel.Invoke((MethodInvoker)delegate {
+                
+                if (finishedSuccessfully) {
+
+                    sortingTimeLabel.Text = $"Finished in {sortingTime} ms";
+
+                } else {
+
+                    sortingTimeLabel.Text = string.Empty;
+
+                }
+
             });
 
         }
 
         private void btnStart_Click(object sender, EventArgs e) {
 
-            sortingThread = new Thread(StartBubbleSort);
+            sortingThread = new Thread(StartSort);
 
             sortingThread.Start();
 
@@ -104,6 +124,13 @@ namespace SortVisualizer {
 
         }
 
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) {
+
+            if (comboBox1.SelectedItem.ToString() == null) return;
+            
+            sortingAlgorithm = comboBox1.SelectedItem.ToString();
+
+        }
     }
     
 }

@@ -8,7 +8,9 @@ namespace SortVisualizer {
     
     internal interface ISortEngine {
 
-        string Sort(int[] theArray, Graphics g, int maxVal);
+        string Sort(int[] theArray, Graphics g, int maxVal, ref bool finishedSuccessfully);
+
+        public bool canRun { get; set; }
 
     }
     
