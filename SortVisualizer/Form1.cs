@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 
 namespace SortVisualizer {
 
@@ -10,9 +11,13 @@ namespace SortVisualizer {
 
         Thread sortingThread;
 
+        string sortingTime = string.Empty;
+
         public Form1() {
 
             InitializeComponent();
+
+            sortingTimeLabel.Text = string.Empty;
 
         }
 
@@ -28,7 +33,11 @@ namespace SortVisualizer {
 
             ISortEngine bubbleSort = new BubbleSort();
 
-            bubbleSort.Sort(theArray, g, panel1.Height);
+            sortingTime = bubbleSort.Sort(theArray, g, panel1.Height);
+
+            this.sortingTimeLabel.Invoke((MethodInvoker)delegate {
+                sortingTimeLabel.Text = $"Finished in {sortingTime} ms";
+            });
 
         }
 
@@ -68,6 +77,10 @@ namespace SortVisualizer {
                 g.FillRectangle(new SolidBrush(Color.White), i, maxVal - theArray[i], 1, maxVal);
 
             }
+
+            sortingTime = string.Empty;
+
+            sortingTimeLabel.Text = string.Empty;
 
         }
 

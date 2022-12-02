@@ -14,8 +14,8 @@ namespace SortVisualizer {
         private int maxVal;
         Brush whiteBrush = new SolidBrush(Color.White);
         Brush blackBrush = new SolidBrush(Color.Black);
-        
-        public void Sort(int[] theArray_In, Graphics g_In, int maxVal_In) {
+
+        public string Sort(int[] theArray_In, Graphics g_In, int maxVal_In) {
 
             var sw = new Stopwatch();
 
@@ -52,7 +52,7 @@ namespace SortVisualizer {
 
             sw.Stop();
 
-            
+            return sw.ElapsedMilliseconds.ToString();
 
         }
     
@@ -66,7 +66,11 @@ namespace SortVisualizer {
         Brush whiteBrush = new SolidBrush(Color.White);
         Brush blackBrush = new SolidBrush(Color.Black);
 
-        public void Sort(int[] theArray_In, Graphics g_In, int maxVal_In) {
+        public string Sort(int[] theArray_In, Graphics g_In, int maxVal_In) {
+
+            var sw = new Stopwatch();
+
+            sw.Start();
 
             theArray = theArray_In;
             maxVal = maxVal_In;
@@ -92,6 +96,10 @@ namespace SortVisualizer {
                 }
 
             }
+
+            sw.Stop();
+
+            return sw.ElapsedMilliseconds.ToString();
 
         }
 

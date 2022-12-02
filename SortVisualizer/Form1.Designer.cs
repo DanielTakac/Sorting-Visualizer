@@ -98,10 +98,12 @@
             // sortingTimeLabel
             // 
             this.sortingTimeLabel.AutoSize = true;
+            this.sortingTimeLabel.ForeColor = System.Drawing.Color.ForestGreen;
             this.sortingTimeLabel.Location = new System.Drawing.Point(184, 52);
             this.sortingTimeLabel.Name = "sortingTimeLabel";
-            this.sortingTimeLabel.Size = new System.Drawing.Size(0, 15);
+            this.sortingTimeLabel.Size = new System.Drawing.Size(116, 15);
             this.sortingTimeLabel.TabIndex = 6;
+            this.sortingTimeLabel.Text = "Finished in 10000 ms";
             // 
             // Form1
             // 
