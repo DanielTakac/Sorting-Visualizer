@@ -1,3 +1,5 @@
+using System;
+
 namespace SortVisualizer {
 
     public partial class Form1 : Form {
@@ -49,13 +51,17 @@ namespace SortVisualizer {
 
             g.FillRectangle(new SolidBrush(Color.Black), 0, 0, numEntries, maxVal);
 
-            Random rand = new Random();
-
             for (int i = 0; i < numEntries; i++) {
 
-                theArray[i] = rand.Next(0, maxVal);
+                theArray[i] = maxVal - i;
 
             }
+
+            // Suffle the array
+
+            Random rand = new Random();
+
+            theArray = theArray.OrderBy(x => rand.Next()).ToArray();
 
             for (int i = 0; i < numEntries; i++) {
 

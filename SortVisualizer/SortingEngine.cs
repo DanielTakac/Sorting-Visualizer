@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,10 @@ namespace SortVisualizer {
         Brush blackBrush = new SolidBrush(Color.Black);
         
         public void Sort(int[] theArray_In, Graphics g_In, int maxVal_In) {
+
+            var sw = new Stopwatch();
+
+            sw.Start();
 
             theArray = theArray_In;
             maxVal = maxVal_In;
@@ -44,6 +49,10 @@ namespace SortVisualizer {
                 }
 
             }
+
+            sw.Stop();
+
+            
 
         }
     
