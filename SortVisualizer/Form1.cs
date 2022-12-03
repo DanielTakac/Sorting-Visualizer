@@ -41,7 +41,7 @@ namespace SortVisualizer {
 
         private void btnReset_Click(object sender, EventArgs e) {
 
-            if (sortingThread != null) sort.canRun = false;
+            if (sort != null) sort.canRun = false;
 
             Reset();
 

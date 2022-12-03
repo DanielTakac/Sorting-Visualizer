@@ -115,11 +115,11 @@ namespace SortVisualizer {
 
                 theArray = theArray.OrderBy(x => random.Next()).ToArray();
 
-                g.FillRectangle(new SolidBrush(Color.Black), 0, 0, theArray.Length, maxVal);
+                g.FillRectangle(blackBrush, 0, 0, theArray.Length, maxVal);
 
                 for (int i = 0; i < theArray.Length; i++) {
 
-                    g.FillRectangle(new SolidBrush(Color.White), i, maxVal - theArray[i], 1, maxVal);
+                    g.FillRectangle(whiteBrush, i, maxVal - theArray[i], 1, maxVal);
 
                 }
 
